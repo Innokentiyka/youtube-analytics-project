@@ -12,5 +12,6 @@ class Channel:
         return data
 
     def print_info(self):
+
         channel_info = self.get_channel_info()
         print (channel_info)
