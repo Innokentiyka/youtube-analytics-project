@@ -10,6 +10,7 @@ class Channel:
 
     def get_service(cls):
         return build('youtube', 'v3', developerKey=os.getenv('YT_API_KEY'))
+
     def __printj(self, dict_to_print: dict) -> None:
         """Выводит словарь в json-подобном удобном формате с отступами"""
         print(json.dumps(dict_to_print, indent=2, ensure_ascii=False))
