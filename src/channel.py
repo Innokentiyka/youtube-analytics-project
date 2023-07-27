@@ -1,16 +1,19 @@
+import json
+import os
+from googleapiclient.discovery import build
+
 
 class Channel:
-    def __init__(self, channel_id):
+    def __init__(self, channel_id: str) -> None:
+        """Экземпляр инициализируется id канала. Дальше все данные будут подтягиваться по API."""
         self.channel_id = channel_id
-        self.api_key = 'nYWC2jEhe6ymWQkZPzVzBMkaxWnosnka'
 
-    def get_channel_info(self):
-        import requests
-        url = f'https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id={self.channel_id}&key={self.api_key}'
-        response = requests.get(url)
-        data = response.json()
-        return data
+    def get_service(cls):
+        return build('youtube', 'v3', developerKey=os.getenv('YT_API_KEY'))
+    def __printj(self, dict_to_print: dict) -> None:
+        """Выводит словарь в json-подобном удобном формате с отступами"""
+        print(json.dumps(dict_to_print, indent=2, ensure_ascii=False))
 
-    def print_info(self):
-        channel_info = self.get_channel_info()
-        print (channel_info)
+    def print_info(self) -> None:
+        """Выводит в консоль информацию о канале."""
+        self.__printj(self.get_service().channels().list(id=self.channel_id, part='snippet,statistics').execute())
