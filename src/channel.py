@@ -30,18 +30,18 @@ class Channel:
     def __sub__(self, other):
         return self.count_podpishchikov - other.podpishikov
 
-    def __next__(self, other):
+    def __gt__(self, other):
         return self.count_podpishchikov > other.count_podpishchikov
 
-    def __next__(self, other):
+    def __ge__(self, other):
         return self.count_podpishchikov >= other.count_podpishchikov
 
-    def __next__(self, other):
+    def __lt__(self, other):
         return self.count_podpishchikov < other.count_podpishchikov
 
-    def __next__(self, other):
+    def __le__(self, other):
         return self.count_podpishchikov <= other.count_podpishchikov
-    def __next__(self, other):
+    def __eq__(self, other):
         return self.count_podpishchikov == other.count_podpishchikov
 
     @property
