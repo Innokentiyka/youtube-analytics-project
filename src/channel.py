@@ -41,7 +41,6 @@ class Channel:
 
     def __next__(self, other):
         return self.count_podpishchikov <= other.count_podpishchikov
-
     def __next__(self, other):
         return self.count_podpishchikov == other.count_podpishchikov
 
