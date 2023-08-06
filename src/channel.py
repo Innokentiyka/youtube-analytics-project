@@ -24,6 +24,27 @@ class Channel:
     def __str__(self):
         return f"{self.title} ({self.url})"
 
+    def __add__(self, other):
+        return self.count_podpishchikov + other.count_podpishikov
+
+    def __sub__(self, other):
+        return self.count_podpishchikov - other.podpishikov
+
+    def __next__(self, other):
+        return self.count_podpishchikov > other.count_podpishchikov
+
+    def __next__(self, other):
+        return self.count_podpishchikov >= other.count_podpishchikov
+
+    def __next__(self, other):
+        return self.count_podpishchikov < other.count_podpishchikov
+
+    def __next__(self, other):
+        return self.count_podpishchikov <= other.count_podpishchikov
+
+    def __next__(self, other):
+        return self.count_podpishchikov == other.count_podpishchikov
+
     @property
     def channel_id(self):
         return self.__channel_id
